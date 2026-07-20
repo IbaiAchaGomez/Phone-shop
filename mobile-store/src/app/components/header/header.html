@@ -1,0 +1,31 @@
+<header>
+
+    <div class="header-content">
+
+        <a routerLink="/" class="logo">
+            Mobile Store
+        </a>
+
+        <nav class="breadcrumb">
+
+            <a routerLink="/">Productos</a>
+
+            @if (breadcrumb() !== 'Productos') {
+
+                <span class="separator"> / </span>
+
+                <a (click)="goBack()" class="back-link">
+                    {{ breadcrumb() }}
+                </a>
+
+            }
+
+        </nav>
+
+        <div class="cart">
+            🛒 {{ cartItems }}
+        </div>
+
+    </div>
+
+</header>

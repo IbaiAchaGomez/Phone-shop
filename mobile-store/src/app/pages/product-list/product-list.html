@@ -1,1 +1,28 @@
-<h1>Listado de productos</h1>
+<app-header breadcrumb="Productos"></app-header>
+
+<section class="content">
+
+  <div class="list-header">
+
+    <h1>Productos</h1>
+
+    <app-search-bar
+      (searchChange)="onSearch($event)">
+    </app-search-bar>
+
+  </div>
+
+    @if (loading()) {
+    <div class="spinner-container">
+        <div class="spinner"></div>
+    </div>
+  } @else {
+      <div class="product-grid">
+        @for (product of filteredProducts(); track product.id) {
+          <app-product-card [product]="product" />
+        } @empty {
+        <p>No se han encontrado productos.</p>
+        }
+      </div>
+  }
+</section>

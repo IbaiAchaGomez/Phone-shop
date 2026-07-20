@@ -1,1 +1,113 @@
-<h1>Detalle del producto</h1>
+<app-header
+    [breadcrumb]="product()?.brand + ' ' + product()?.model">
+</app-header>
+
+<section class="content">
+    @if (loading()) {
+
+        <div class="spinner-container">
+            <div class="spinner"></div>
+        </div>
+
+    } @else if (product(); as p) {
+
+        <div class="detail-container">
+
+            <!-- Imagen -->
+
+            <div class="image-column">
+
+                <img
+                    [src]="p.imgUrl"
+                    [alt]="p.model">
+
+            </div>
+
+            <!-- Información -->
+
+            <div class="info-column">
+
+                <h1>{{ p.brand }}</h1>
+
+                <h2>{{ p.model }}</h2>
+
+                <p><strong>Precio:</strong> {{ p.price ?? 'No disponible'  }} €</p>
+
+                <p><strong>CPU:</strong> {{ p.cpu ?? 'No disponible'  }}</p>
+
+                <p><strong>RAM:</strong> {{ p.ram ?? 'No disponible'  }}</p>
+
+                <p><strong>Sistema Operativo:</strong> {{ p.os ?? 'No disponible' }}</p>
+
+                <p><strong>Resolución:</strong> {{ p.displayResolution ?? 'No disponible' }}</p>
+
+                <p><strong>Batería:</strong> {{ p.battery ?? 'No disponible' }}</p>
+                
+                <p><strong>Cámara principal:</strong> {{ primaryCameraText() }}</p>
+
+                <p><strong>Dimensiones:</strong> {{ p.dimentions ?? 'No disponible' }}</p>
+
+                <p><strong>Peso:</strong> {{ p.weight ?? 'No disponible' }} g</p>
+
+                <hr>
+
+                <!-- Acciones -->
+                <div class="actions">
+                <label>
+                    Color
+                    <select>
+                        @for(color of p.options.colors; track color.code){
+                            <option [value]="color.code">
+                                {{ color.name }}
+                            </option>
+                        }
+                    </select>
+                </label>
+
+                <label>
+                    Almacenamiento
+                    <select>
+                        @for(storage of p.options.storages; track storage.code){
+                            <option [value]="storage.code">
+                                {{ storage.name }}
+                            </option>
+                        }
+                    </select>
+                </label>
+
+                <button
+                    (click)="addToCart()"
+                    [disabled]="!canAddToCart() || addingToCart()">
+                    {{ addingToCart() ? 'Añadiendo...' : 'Añadir al carrito' }}
+                </button>
+
+                @if (!canAddToCart()) {
+                    <p class="warning-text">Selecciona color y almacenamiento para continuar</p>
+                }
+
+                @if (showConfirmDialog()) {
+                    <div class="modal-overlay" (click)="cancelAddToCart()">
+                        <div class="modal-content" (click)="$event.stopPropagation()">
+
+                        <h3>Confirmar</h3>
+                            <p>¿Añadir {{ product()?.brand }} {{ product()?.model }} al carrito?</p>
+
+                        <div class="modal-actions">
+                        <button class="btn-secondary" (click)="cancelAddToCart()">
+                            Cancelar
+                        </button>
+                        <button class="btn-primary" (click)="confirmAddToCart()">
+                            Confirmar
+                        </button>
+                
+                        </div>
+
+                        </div>
+                    </div>
+                }
+                </div>
+            </div>
+        </div>
+    }
+
+</section>

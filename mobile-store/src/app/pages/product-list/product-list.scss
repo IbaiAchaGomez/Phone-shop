@@ -1,0 +1,95 @@
+/* Zona principal */
+.content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Cabecera del listado */
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+
+.list-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* El buscador ocupa un ancho fijo */
+app-search-bar {
+    width: 350px;
+}
+
+/* Grid de productos */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media (max-width: 900px) {
+
+    .list-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    app-search-bar {
+        width: 100%;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.spinner-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:300px;
+}
+
+.spinner{
+
+    width:48px;
+    height:48px;
+
+    border:5px solid #ddd;
+    border-top-color:#111;
+
+    border-radius:50%;
+
+    animation:spin .8s linear infinite;
+
+}
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}

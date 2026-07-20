@@ -1,0 +1,28 @@
+<div class="card" (click)="goToDetail()">
+
+    <div class="image-container">
+
+        <img
+            [src]="product().imgUrl"
+            [alt]="product().model">
+
+    </div>
+
+    <div class="info">
+        <p class="brand">
+            {{ product().brand }}
+        </p>
+        <p class="model">
+            {{ product().model }}
+        </p>
+        @if (product().price) {
+            <span class="price">
+                {{ product().price }} €
+            </span>
+        } @else {
+            <span class="price-unavailable">
+                Consultar precio
+            </span>
+        }
+    </div>
+</div>

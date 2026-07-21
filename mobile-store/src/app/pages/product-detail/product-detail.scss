@@ -205,3 +205,14 @@
 .btn-secondary:hover {
     background: #ddd;
 }
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+app-search-bar {
+  width: 350px;
+}

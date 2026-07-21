@@ -5,6 +5,7 @@ import { ProductDetailModel } from '../../models/ProductDetailModel';
 import { ProductService } from '../../services/product/productService';
 import { CartService } from '../../services/cart/cartService';
 import { CartRequest } from '../../models/requests/CartRequest';
+import { CartStateService } from '../../services/cart/cartStateService';
 
 @Component({
   selector: 'app-product-detail',
@@ -20,6 +21,7 @@ export class ProductDetail {
   private route = inject(ActivatedRoute);
   private productService = inject(ProductService);
   private cartService = inject(CartService);
+  private cartStateService = inject(CartStateService);
 
   product = signal<ProductDetailModel | undefined>(undefined);
   selectedColor = signal<number | undefined>(undefined);
@@ -37,8 +39,8 @@ export class ProductDetail {
   if (Array.isArray(cam)) {
     return cam.length > 0 ? cam.join(', ') : 'No disponible';
   }
-  return cam; // ya es un string
-});
+  return cam;
+  });
 
   ngOnInit(): void {
 
@@ -106,8 +108,9 @@ export class ProductDetail {
     }
 
     this.cartService.addToCart(cartProduct).subscribe({
-      next: () => {
+      next: (response) => {
         this.addingToCart.set(false);
+        this.cartStateService.setCartItems(response.count);
         console.log('Producto añadido al carrito');
       },
       error: (err) => {

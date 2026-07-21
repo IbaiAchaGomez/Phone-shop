@@ -1,5 +1,6 @@
 import { Component, inject, input } from '@angular/core';
 import { Location } from '@angular/common';
+import { CartStateService } from '../../services/cart/cartStateService';
 
 @Component({
   standalone: true,
@@ -11,10 +12,12 @@ import { Location } from '@angular/common';
 export class Header {
 
   private location = inject(Location)
-   breadcrumb = input<string>('');
-   cartItems = 0;
-   
-   goBack(): void {
+  breadcrumb = input<string>('');
+  private cartStateService = inject(CartStateService);
+
+  cartItems = this.cartStateService.cartItems;
+  
+  goBack(): void {
     this.location.back();
   }
 }

@@ -16,7 +16,7 @@ Aplicación frontend desarrollada con Angular para la gestión de un catálogo d
 Clonar el repositorio:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/IbaiAchaGomez/Phone-shop.git
 ```
 Instalar dependencias:
 ```bash

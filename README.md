@@ -63,9 +63,13 @@ Analizar código
 npm run lint
 ```
 
-Tecnologías
-Angular
-TypeScript
-RxJS
-SCSS
-Jasmine/Karma (pendiente de añadir tests)
+```md
+## Tecnologías utilizadas
+
+- Angular v21
+- TypeScript
+- RxJS
+- Jasmine / Karma (configurado para testing)
+- ESLint
+- SCSS
+```

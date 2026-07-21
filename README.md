@@ -32,20 +32,20 @@ La aplicación estará disponible en:
 http://localhost:4200
 ```
 
-Funcionalidades implementadas
-Listado de productos.
-Vista detalle de producto.
-Navegación mediante breadcrumbs.
-Búsqueda de productos.
-Selección de variantes del producto.
-Añadir productos a la cesta.
-Persistencia de datos en el cliente.
-Funcionalidades pendientes
-Implementación de pruebas unitarias con Jasmine/Karma.
-Revisión y ampliación de cobertura de tests.
-Mejoras adicionales de validación y manejo de errores.
+## Funcionalidades implementadas
+- Listado de productos.
+- Vista detalle de producto.
+- Navegación mediante breadcrumbs.
+- Búsqueda de productos.
+- Selección de variantes del producto.
+- Añadir productos a la cesta.
+- Persistencia de datos en el cliente.
+## Funcionalidades pendientes
+- Implementación de pruebas unitarias con Jasmine/Karma.
+- Revisión y ampliación de cobertura de tests.
+- Mejoras adicionales de validación y manejo de errores.
 
-Scripts disponibles
+## Scripts disponibles
 Iniciar aplicación
 ```bash
 npm start
@@ -62,8 +62,6 @@ Analizar código
 ```bash
 npm run lint
 ```
-
-```md
 ## Tecnologías utilizadas
 
 - Angular v21
@@ -72,4 +70,3 @@ npm run lint
 - Jasmine / Karma (configurado para testing)
 - ESLint
 - SCSS
-```

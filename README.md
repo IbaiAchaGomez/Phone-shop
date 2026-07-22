@@ -2,10 +2,6 @@
 
 Aplicación frontend desarrollada con Angular para la gestión de un catálogo de productos. Permite consultar productos, acceder a su detalle y gestionar una cesta de compra.
 
-## Estado del proyecto
-
-🚧 En desarrollo
-
 ## Requisitos
 
 - Node.js

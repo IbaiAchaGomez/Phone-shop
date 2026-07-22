@@ -39,7 +39,6 @@ http://localhost:4200
 ## Funcionalidades pendientes
 - Implementación de pruebas unitarias con Jasmine/Karma.
 - Revisión y ampliación de cobertura de tests.
-- Mejoras adicionales de validación y manejo de errores.
 
 ## Scripts disponibles
 Iniciar aplicación
